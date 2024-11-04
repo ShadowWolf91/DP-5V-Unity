@@ -22,8 +22,8 @@ public class PanelMove : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     void Start()
     {                                                  //инициализация переменных
         UIGameobject = gameObject.GetComponent<RectTransform>();    // объект панели
-        width = 75;         // определение ширины панели
-        speedPanel = 8;                                           // скорость движения панели 
+        width = 100;         // определение ширины панели
+        speedPanel = 1;                                           // скорость движения панели 
     }
 
     void Update()

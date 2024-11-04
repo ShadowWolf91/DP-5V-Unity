@@ -46,9 +46,16 @@ public class DetectBlockAndTripodOnScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B) && cameraMovement_.transform.position == new Vector3(0.76f, 1.6f, 0.17f) && cameraMovement_.transform.rotation == Quaternion.Euler(35.683f, -38.757f, -0.008f))
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Input.GetMouseButtonDown(0))  //если нажата клавиша q
         {
-            anim.SetInteger("DBaTOS", 1);
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                if (hit.collider.gameObject.name == "TripodBody" || hit.collider.gameObject.name == "TripodHolder" && cameraMovement_.transform.position == new Vector3(0.76f, 1.6f, 0.17f) && cameraMovement_.transform.rotation == Quaternion.Euler(35.683f, -38.757f, -0.008f))
+                {
+                    anim.SetInteger("DBaTOS", 1);
+                }
+            }
         }
         //if (Input.GetKeyDown(KeyCode.C))
         //{
@@ -62,7 +69,7 @@ public class DetectBlockAndTripodOnScreen : MonoBehaviour
         //    transform.position = cameraMovement_.transform.position + vector3;
         //    transform.rotation = cameraMovement_.transform.rotation * quaternion;
         //}
-        if (Input.GetKeyDown(KeyCode.N))
+        if (Input.GetKeyDown(KeyCode.G))
         {
             anim.enabled = true;
             anima.enabled = true;
@@ -74,10 +81,11 @@ public class DetectBlockAndTripodOnScreen : MonoBehaviour
                     anima.enabled = false;
                     gg.transform.rotation = Quaternion.Euler(Random.Range(-49.0f, -123.0f), -90f, 90f);
                     //rh = rnd.Next(1, 200)*1000;
+                    left.Play();
+                    right.Play();
                 }
                 //Debug.Log(gamma.rh);
-                left.Play();
-                right.Play();
+
             }
             else
             {
@@ -85,7 +93,7 @@ public class DetectBlockAndTripodOnScreen : MonoBehaviour
                 right.Stop();
             }
         }
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.B))
         {
             anim.enabled = true;
             anima.enabled = true;
@@ -97,9 +105,10 @@ public class DetectBlockAndTripodOnScreen : MonoBehaviour
                     anima.enabled = false;
                     gg.transform.rotation = Quaternion.Euler(Random.Range(-49.0f, -123.0f), -90f, 90f);
                     //rh = rnd.Next(1, 200)*1000;
+                    left.Play();
+                    right.Play();
                 }
-                left.Play();
-                right.Play();
+
             }
             else 
             {

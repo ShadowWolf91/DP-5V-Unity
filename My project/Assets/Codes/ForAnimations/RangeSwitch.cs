@@ -8,7 +8,6 @@ public class RangeSwitch : MonoBehaviour
     public int move = 0;
     Animator anim;
     public Animator anima;
-    public Animator animat;
     GameObject monitor;
     GameObject rheadPhones;
     GameObject lheadPhones;
@@ -115,7 +114,7 @@ public class RangeSwitch : MonoBehaviour
                     ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     if (Physics.Raycast(ray, out RaycastHit hit))
                     {
-                        if (hit.collider.gameObject.name == "Switcher" && move >= 0 && move < 7)
+                        if (hit.collider.gameObject.name == "Switcher" && move > 0 && move < 7)
                         {
                             anim.SetInteger("ranSwi", 4);
                             if (monMove.rotation == 0)
@@ -146,7 +145,7 @@ public class RangeSwitch : MonoBehaviour
                     ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     if (Physics.Raycast(ray, out RaycastHit hit))
                     {
-                        if (hit.collider.gameObject.name == "Switcher" && move >= 0 && move < 7)
+                        if (hit.collider.gameObject.name == "Switcher" && move > 0 && move < 7)
                         {
                             anim.SetInteger("ranSwi", 5);
                             if (monMove.rotation == 0)
@@ -182,7 +181,7 @@ public class RangeSwitch : MonoBehaviour
                     ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     if (Physics.Raycast(ray, out RaycastHit hit))
                     {
-                        if (hit.collider.gameObject.name == "Switcher" && move >= 0 && move < 7)
+                        if (hit.collider.gameObject.name == "Switcher" && move > 0 && move < 7)
                         {
                             anim.SetInteger("ranSwi", 6);
                             if (monMove.rotation == 0)
@@ -220,7 +219,7 @@ public class RangeSwitch : MonoBehaviour
                     ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     if (Physics.Raycast(ray, out RaycastHit hit))
                     {
-                        if (hit.collider.gameObject.name == "Switcher" && move >= 0 && move < 7)
+                        if (hit.collider.gameObject.name == "Switcher" && move > 0 && move < 7)
                         {
                             anim.SetInteger("ranSwi", 7);
                             if (monMove.rotation == 0)

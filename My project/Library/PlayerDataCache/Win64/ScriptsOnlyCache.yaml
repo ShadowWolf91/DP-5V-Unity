@@ -312,6 +312,12 @@ ScriptsOnlyBuild:
     fullTypeName: HighlightingElements
     methodName: ChangeColorBack
   - assembly: Assembly-CSharp
+    fullTypeName: ExitPointerPanel
+    methodName: OnButtonClick
+  - assembly: Assembly-CSharp
+    fullTypeName: ExitPointerPanel
+    methodName: OnButtonClick
+  - assembly: Assembly-CSharp
     fullTypeName: InputForTable
     methodName: Task7
   - assembly: Assembly-CSharp
@@ -1288,7 +1294,7 @@ ScriptsOnlyBuild:
     className: AspectRatioFitter
   - hash:
       serializedVersion: 2
-      Hash: 2586fe17a2a4431493b965d78c7002c6
+      Hash: 4cc551fb09aac7b7fc4eba36872cbadf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RangeSwitch
@@ -1661,4 +1667,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Ust.unity
-  playerPath: C:/Users/ShadowWolf/My project/Web/My project.exe
+  playerPath: D:/Projects/DP-5V/DP-5V-Unity/My project.exe

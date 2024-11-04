@@ -1,4 +1,4 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,18 +7,18 @@ using UnityEngine.UI;
 public class ButtonDropdown : MonoBehaviour, IPointerEnterHandler
 {
 
-    public GameObject panelTrigger;		// нужно связать переменную с объектом
-    RectTransform triggerTransfrom;		// переменная типа прямоугольника 
-    public Button button;			// объект кнопки
-    RectTransform buttonTransfrom;		// прямоугольник для кнопки
-    Vector2 buttonSize;			// двумерный вектор для размещения кнопки
-    public GameObject dropdownList;	// объект списка меню
-    RectTransform dropdownTransfrom;        // прямоугольник для списка меню
-    Vector2 dropdownSize;   			 // двумерный вектор для списка меню
-    public Sprite buttonNormalState; 	//  для накладывания начальной текстуры на кнопку
-    public Sprite buttonHighlightedState;   //  для накладывания конечной текстуры на кнопку
+    public GameObject panelTrigger;		// РЅСѓР¶РЅРѕ СЃРІСЏР·Р°С‚СЊ РїРµСЂРµРјРµРЅРЅСѓСЋ СЃ РѕР±СЉРµРєС‚РѕРј
+    RectTransform triggerTransfrom;		// РїРµСЂРµРјРµРЅРЅР°СЏ С‚РёРїР° РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР° 
+    public Button button;			// РѕР±СЉРµРєС‚ РєРЅРѕРїРєРё
+    RectTransform buttonTransfrom;		// РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє РґР»СЏ РєРЅРѕРїРєРё
+    Vector2 buttonSize;			// РґРІСѓРјРµСЂРЅС‹Р№ РІРµРєС‚РѕСЂ РґР»СЏ СЂР°Р·РјРµС‰РµРЅРёСЏ РєРЅРѕРїРєРё
+    public GameObject dropdownList;	// РѕР±СЉРµРєС‚ СЃРїРёСЃРєР° РјРµРЅСЋ
+    RectTransform dropdownTransfrom;        // РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє РґР»СЏ СЃРїРёСЃРєР° РјРµРЅСЋ
+    Vector2 dropdownSize;   			 // РґРІСѓРјРµСЂРЅС‹Р№ РІРµРєС‚РѕСЂ РґР»СЏ СЃРїРёСЃРєР° РјРµРЅСЋ
+    public Sprite buttonNormalState; 	//  РґР»СЏ РЅР°РєР»Р°РґС‹РІР°РЅРёСЏ РЅР°С‡Р°Р»СЊРЅРѕР№ С‚РµРєСЃС‚СѓСЂС‹ РЅР° РєРЅРѕРїРєСѓ
+    public Sprite buttonHighlightedState;   //  РґР»СЏ РЅР°РєР»Р°РґС‹РІР°РЅРёСЏ РєРѕРЅРµС‡РЅРѕР№ С‚РµРєСЃС‚СѓСЂС‹ РЅР° РєРЅРѕРїРєСѓ
 
-    void Start()					// инициализация и задание значений переменным 
+    void Start()					// РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ Рё Р·Р°РґР°РЅРёРµ Р·РЅР°С‡РµРЅРёР№ РїРµСЂРµРјРµРЅРЅС‹Рј 
     {
         if (dropdownList != null)
         {
@@ -26,19 +26,20 @@ public class ButtonDropdown : MonoBehaviour, IPointerEnterHandler
             buttonTransfrom = button.GetComponent<RectTransform>();
             dropdownTransfrom = dropdownList.GetComponent<RectTransform>();
             buttonSize = buttonTransfrom.sizeDelta;
-            dropdownSize = dropdownTransfrom.sizeDelta; // размер прямоугольника списка меню
+            dropdownSize = dropdownTransfrom.sizeDelta; // СЂР°Р·РјРµСЂ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР° СЃРїРёСЃРєР° РјРµРЅСЋ
             dropdownTransfrom.sizeDelta = new Vector2(0, 0);
-            triggerTransfrom.sizeDelta = buttonSize;             // размер прямоугольника кнопки
-            dropdownList.SetActive(false);		        // активизация выпадающего списка меню
+            triggerTransfrom.sizeDelta = buttonSize;             // СЂР°Р·РјРµСЂ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР° РєРЅРѕРїРєРё
+            dropdownList.SetActive(false);		        // Р°РєС‚РёРІРёР·Р°С†РёСЏ РІС‹РїР°РґР°СЋС‰РµРіРѕ СЃРїРёСЃРєР° РјРµРЅСЋ
         }
     }
 
-    public void OnPointerEnter(PointerEventData eventData)   // надвинули курсор на кнопку
+    public void OnPointerEnter(PointerEventData eventData)   // РЅР°РґРІРёРЅСѓР»Рё РєСѓСЂСЃРѕСЂ РЅР° РєРЅРѕРїРєСѓ
     {
 
         button.GetComponent<Image>().sprite = buttonHighlightedState;
         dropdownTransfrom.sizeDelta = dropdownSize;
-        triggerTransfrom.sizeDelta = buttonSize + dropdownSize;     // общий размер прямоугольника
-        dropdownList.SetActive(true);					// активация списка меню	
+        triggerTransfrom.sizeDelta = buttonSize + dropdownSize;     // РѕР±С‰РёР№ СЂР°Р·РјРµСЂ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР°
+        dropdownList.SetActive(true);                   // Р°РєС‚РёРІР°С†РёСЏ СЃРїРёСЃРєР° РјРµРЅСЋ
+
     }
 }

@@ -23,12 +23,19 @@ public class HeadphonesOnCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H) && cameraMovement_.transform.position == new Vector3(-0.3954054f, 1.656074f, 0.7469103f) && cameraMovement_.transform.rotation == Quaternion.Euler(56.412f, 7.314f, -0.002f))
-        {
-            cameraMovement_.GetComponent<AudioListener>().enabled = true;
-            anim.SetInteger("HPOC", 1);
-            anim.enabled = false;
-            move = true;
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Input.GetMouseButtonDown(0))  //если нажата клавиша q
+        {            
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                if (hit.collider.gameObject.name == "HeadPhonesCorpus" || hit.collider.gameObject.name == "RightHeadPhone" || hit.collider.gameObject.name == "LeftHeadPhone" && cameraMovement_.transform.position == new Vector3(-0.3954054f, 1.656074f, 0.7469103f) && cameraMovement_.transform.rotation == Quaternion.Euler(56.412f, 7.314f, -0.002f))
+                {
+                    cameraMovement_.GetComponent<AudioListener>().enabled = true;
+                    anim.SetInteger("HPOC", 1);
+                    anim.enabled = false;
+                    move = true;
+                }
+            }
         }
         if (move)
         {

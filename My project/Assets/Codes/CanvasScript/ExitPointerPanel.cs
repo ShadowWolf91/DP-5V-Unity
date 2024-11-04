@@ -1,22 +1,22 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ExitPointerPanel : MonoBehaviour, IPointerExitHandler
+public class ExitPointerPanel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public GameObject panelTrigger;		// нужно связать переменную с объектом
-    RectTransform triggerTransfrom;		// переменная типа прямоугольника 
-    public Button button;			// объект кнопки
-    RectTransform buttonTransfrom;		// прямоугольник для кнопки
-    Vector2 buttonSize;			// двумерный вектор для размещения кнопки
-    public GameObject dropdownList;	// объект списка меню
-    RectTransform dropdownTransfrom;        // прямоугольник для списка меню
-    Vector2 dropdownSize;   			 // двумерный вектор для списка меню
-    public Sprite buttonNormalState; 	//  для накладывания начальной текстуры на кнопку
-    public Sprite buttonHighlightedState;   //  для накладывания конечной текстуры на кнопку
+    public GameObject panelTrigger;		// РЅСѓР¶РЅРѕ СЃРІСЏР·Р°С‚СЊ РїРµСЂРµРјРµРЅРЅСѓСЋ СЃ РѕР±СЉРµРєС‚РѕРј
+    RectTransform triggerTransfrom;		// РїРµСЂРµРјРµРЅРЅР°СЏ С‚РёРїР° РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР° 
+    public Button button;			// РѕР±СЉРµРєС‚ РєРЅРѕРїРєРё
+    RectTransform buttonTransfrom;		// РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє РґР»СЏ РєРЅРѕРїРєРё
+    Vector2 buttonSize;			// РґРІСѓРјРµСЂРЅС‹Р№ РІРµРєС‚РѕСЂ РґР»СЏ СЂР°Р·РјРµС‰РµРЅРёСЏ РєРЅРѕРїРєРё
+    public GameObject dropdownList;	// РѕР±СЉРµРєС‚ СЃРїРёСЃРєР° РјРµРЅСЋ
+    RectTransform dropdownTransfrom;        // РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє РґР»СЏ СЃРїРёСЃРєР° РјРµРЅСЋ
+    Vector2 dropdownSize;   			 // РґРІСѓРјРµСЂРЅС‹Р№ РІРµРєС‚РѕСЂ РґР»СЏ СЃРїРёСЃРєР° РјРµРЅСЋ
+    public Sprite buttonNormalState; 	//  РґР»СЏ РЅР°РєР»Р°РґС‹РІР°РЅРёСЏ РЅР°С‡Р°Р»СЊРЅРѕР№ С‚РµРєСЃС‚СѓСЂС‹ РЅР° РєРЅРѕРїРєСѓ
+    public Sprite buttonHighlightedState;   //  РґР»СЏ РЅР°РєР»Р°РґС‹РІР°РЅРёСЏ РєРѕРЅРµС‡РЅРѕР№ С‚РµРєСЃС‚СѓСЂС‹ РЅР° РєРЅРѕРїРєСѓ
+
     void Start()
     {
         if (dropdownList != null)
@@ -25,26 +25,18 @@ public class ExitPointerPanel : MonoBehaviour, IPointerExitHandler
             buttonTransfrom = button.GetComponent<RectTransform>();
             dropdownTransfrom = dropdownList.GetComponent<RectTransform>();
             buttonSize = buttonTransfrom.sizeDelta;
-            dropdownSize = dropdownTransfrom.sizeDelta; // размер прямоугольника списка меню
+            dropdownSize = dropdownTransfrom.sizeDelta; // СЂР°Р·РјРµСЂ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР° СЃРїРёСЃРєР° РјРµРЅСЋ
             dropdownTransfrom.sizeDelta = new Vector2(0, 0);
-            triggerTransfrom.sizeDelta = buttonSize;             // размер прямоугольника кнопки
-            dropdownList.SetActive(false);		        // активизация выпадающего списка меню
+            triggerTransfrom.sizeDelta = buttonSize;             // СЂР°Р·РјРµСЂ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР° РєРЅРѕРїРєРё
+            dropdownList.SetActive(true);		        // Р°РєС‚РёРІРёР·Р°С†РёСЏ РІС‹РїР°РґР°СЋС‰РµРіРѕ СЃРїРёСЃРєР° РјРµРЅСЋ
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnButtonClick()     // СѓР±СЂР°Р»Рё РєСѓСЂСЃРѕСЂ СЃ РєРЅРѕРїРєРё
     {
-        
-    }
-    public void OnPointerExit(PointerEventData eventData)     // убрали курсор с кнопки
-    {
-        if (dropdownList != null)
-        {
+            button.GetComponent<Image>().sprite = buttonNormalState; // РІРѕР·РІСЂР°С‚ С†РІРµС‚Р° РєРЅРѕРїРєРё
             dropdownTransfrom.sizeDelta = new Vector2(0, 0);
-            triggerTransfrom.sizeDelta = buttonSize;    		// возврат размера прямоугольника
-            button.GetComponent<Image>().sprite = buttonNormalState; // возврат цвета кнопки
-            dropdownList.SetActive(false); 				// дезактивация списка меню	
-        }
+            triggerTransfrom.sizeDelta = buttonSize;        // РІРѕР·РІСЂР°С‚ СЂР°Р·РјРµСЂР° РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР°    			
+            dropdownList.SetActive(false); // РґРµР·Р°РєС‚РёРІР°С†РёСЏ СЃРїРёСЃРєР° РјРµРЅСЋ
     }
 }

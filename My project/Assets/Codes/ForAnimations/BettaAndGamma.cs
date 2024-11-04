@@ -32,25 +32,29 @@ public class BettaAndGamma : MonoBehaviour
             rh = Quaternion.Euler(Random.Range(-47.0f, -122.0f), 0f, 0f);
             //rh = rnd.Next(1, 200)*1000;
         }
-        if (rangeSwitch.move == 3 && monitorMove.rotation == 2)
+        else if (rangeSwitch.move == 3 && monitorMove.rotation == 2)
         {
             rh = Quaternion.Euler(Random.Range(-47.0f, -122.0f), 0f, 0f);
         }
-        if (rangeSwitch.move == 4 && monitorMove.rotation == 2)
+        else if (rangeSwitch.move == 4 && monitorMove.rotation == 2)
         {
             rh = Quaternion.Euler(Random.Range(-47.0f, -122.0f), 0f, 0f);
         }
-        if (rangeSwitch.move == 5 && monitorMove.rotation == 2)
+        else if (rangeSwitch.move == 5 && monitorMove.rotation == 2)
         {
             rh = Quaternion.Euler(Random.Range(-47.0f, -122.0f), 0f, 0f);
         }
-        if (rangeSwitch.move == 6 && monitorMove.rotation == 2)
+        else if (rangeSwitch.move == 6 && monitorMove.rotation == 2)
         {
             rh = Quaternion.Euler(Random.Range(-47.0f, -122.0f), 0f, 0f);
         }
-        if (rangeSwitch.move == 7 && monitorMove.rotation == 2)
+        else if (rangeSwitch.move == 7 && monitorMove.rotation == 2)
         {
             rh = Quaternion.Euler(Random.Range(-47.0f, -122.0f), 0f, 0f);
+        }
+        else
+        {
+            rh = Quaternion.Euler(0f, 0f, 0f);
         }
     }
 }

@@ -24,27 +24,31 @@ public class Gamma : MonoBehaviour
     {
         if (rangeSwitch.move == 2 && monitorMove.rotation == 1)
         {
-            rh = rnd.Next(5, 200)*1000;
+            rh = rnd.Next(5, 200) * 1000;
         }
-        if (rangeSwitch.move == 3 && monitorMove.rotation == 1)
+        else if (rangeSwitch.move == 3 && monitorMove.rotation == 1)
         {
             rh = rnd.Next(500, 5000);
         }
-        if (rangeSwitch.move == 4 && monitorMove.rotation == 1)
+        else if (rangeSwitch.move == 4 && monitorMove.rotation == 1)
         {
             rh = rnd.Next(50, 500);
         }
-        if (rangeSwitch.move == 5 && monitorMove.rotation == 1)
+        else if (rangeSwitch.move == 5 && monitorMove.rotation == 1)
         {
             rh = rnd.Next(5, 50);
         }
-        if (rangeSwitch.move == 6 && monitorMove.rotation == 1)
+        else if (rangeSwitch.move == 6 && monitorMove.rotation == 1)
         {
-            rh = rnd.Next(5, 50)/10;
+            rh = rnd.Next(5, 50) / 10;
         }
-        if (rangeSwitch.move == 7 && monitorMove.rotation == 1)
+        else if (rangeSwitch.move == 7 && monitorMove.rotation == 1)
         {
-            rh = rnd.Next(5, 50)/100;
+            rh = rnd.Next(5, 50) / 100;
+        }
+        else 
+        {
+            rh = 0;
         }
     }
 }
